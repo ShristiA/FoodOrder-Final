@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/processQuantity}"
+      method="post"
+      th:object="${customer}">
+    <input type="hidden" th:field="*{id}" />
+    Food Name:<select th:field="*{food}" class="form-control input-md">
+    <option th:each="option: ${foods}"
+            th:value="${option.id}">[[${option.name}]]</option>
+          </select><br/>
+
+    Quantity :<input type="text" th:field="*{quantity}">
+    <!--Enter the quantity: <input type="text" th:field="*{quantity}" />-->
+        <button type="submit" class="btn btn-warning" data-dismiss="modal">order</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Thank you for visiting us.</h3>
+<h4>Here are your orders</h4>
+<table>
+    <thead>
+    <tr>
+    <th scope="col">Item Name</th>
+    <th scope="col">price</th>
+    <th scope="col">quantity</th>
+    <th scope="col">cost</th>
+    </tr>
+    </thead>
+  <tbody>
+
+  <th><span scope="row" th:text="${item}"></span></th>
+  <th><span scope="row" th:text="${price}"></span></th>
+  <th><span scope="row" th:text="${quantity}"></span></th>
+  <th><span scope="row" th:text="${cost}"></span></th>
+  </tbody>
+</table>
+  <h4> Tax = 6%</h4>
+  <h4>Subtotal: <span th:text="${subtotal}"></span></h4>
+  <h4>SalesTax: <span th:text="${salesTax}"></span></h4>
+  <h4>Total: <span th:text="${total}"></span></h4>
+
+</body>
+</html>

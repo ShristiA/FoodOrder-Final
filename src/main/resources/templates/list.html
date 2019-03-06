@@ -3,30 +3,61 @@
 <head>
     <meta charset="UTF-8" />
     <title>List</title>
+    <th:block th:replace="base :: headstuffs"></th:block>
 </head>
 <body>
-    <a href="/addsubject">Add a Subject</a><br/>
-    <a href="/add">Add a Course</a><br/>
+<div th:replace="base :: navlinks"></div>
 
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Subject</th>
-            <th>Instructor</th>
-            <th>Credits</th>
-            <th>Actions</th>
-        </tr>
-        <tr th:each="course : ${courses}">
-            <td th:text="${course.title}"></td>
-            <td th:text="${course.subject.title}"></td>
-            <td th:text="${course.instructor}"></td>
-            <td th:text="${course.credit}"></td>
-            <td>
-                <a th:href="@{/update/{id}(id=${course.id})}">Update</a> -
-                <a th:href="@{/detail/{id}(id=${course.id})}">Details</a> -
-                <a th:href="@{/delete/{id}(id=${course.id})}">Delete</a>
-            </td>
-        </tr>
-    </table>
+
+<div class="container">
+    <!--<table>-->
+    <section class="container bg-light mt-2">
+        <div class="row">
+    <!--<a href="/add">Add Food</a><br/>-->
+    <!--<a href="/addCategories">Add a Category</a><br/>-->
+
+        <div th:each="food : ${foods}">
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <div th:text="${food.description}"></div></p>
+                        <p class="card-text">
+                        <div th:text="${food.name}"></div>
+                    </p>
+                        <p class="card-text" align="right">
+                        <div th:if="${food.image}" !="null">
+                            <img th:src="${food.image}" style="width: 50%;" height="30%"; align="right" />
+                    </div></p>
+
+                        <p class="card-text" align="right">
+                        <div th:text="${food.price}"></div></p>
+
+                                   <!--<div th:text="${food.category}"></div>-->
+            <!--<td th:text="${food.foodcategory}"></td>-->
+
+
+            <!---->
+            <!--<div th:if="${food.image}" !="null">-->
+                <!--<img th:src="${food.image}" />-->
+            <!--</div>-->
+                        <p class="card-text" align="right">
+                            <a th:href="@{/update/{id}(id=${food.id})}">Update</a> </p>
+                        <p class="card-text" align="right">
+                            <a th:href="@{/delete/{id}(id=${food.id})}">Delete</a></p>
+
+
+            <form action="#" th:action="@{/addQuantity}">
+                        <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#myModal" value="submit">order</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end section container -->
+            <h3></h3>
+        </div>
+    </section>
+</div>
 </body>
 </html>
+
